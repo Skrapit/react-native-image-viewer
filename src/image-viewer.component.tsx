@@ -412,7 +412,7 @@ export default class ImageViewer extends React.Component<typings.PropsDefine, ty
                         onClick={this.handleClick.bind(this)}
                         onDoubleClick={this.handleDoubleClick.bind(this)}>
                         <Image style={[this.styles.imageStyle, { width: width, height: height }]}
-                            source={{ uri: image.url }} />
+                            source={{ uri: image.url }} capInsets={{left: 0.1, right: 0.1, bottom: 0.1, top: 0.1}} />
                     </ImageZoom>
                 )
             } else {
@@ -450,7 +450,7 @@ export default class ImageViewer extends React.Component<typings.PropsDefine, ty
                                 <TouchableOpacity key={index}
                                     style={this.styles.failContainer}>
                                     <Image source={this.props.failImageSource}
-                                        style={this.styles.failImage} />
+                                        style={this.styles.failImage} capInsets={{left: 0.1, right: 0.1, bottom: 0.1, top: 0.1}} />
                                 </TouchableOpacity>
                             </ImageZoom>
                         )
