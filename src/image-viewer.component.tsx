@@ -91,6 +91,17 @@ export default class ImageViewer extends React.Component<typings.PropsDefine, ty
         })
     }
 
+    componentWillReceiveProps(newProps: typings.PropsDefine) {
+      if(newProps.index != this.props.index){
+        this.setState({
+            currentShowIndex: newProps.index
+        }, () => {
+            this.loadImage(newProps.index);
+            this.jumpToCurrentImage();
+        });
+      }
+    }
+
     /**
      * 调到当前看图位置
      */

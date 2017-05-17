@@ -54,6 +54,16 @@ let ImageViewer = class ImageViewer extends React.Component {
             }).start();
         });
     }
+    componentWillReceiveProps(newProps) {
+        if (newProps.index != this.props.index) {
+            this.setState({
+                currentShowIndex: newProps.index
+            }, () => {
+                this.loadImage(newProps.index);
+                this.jumpToCurrentImage();
+            });
+        }
+    }
     jumpToCurrentImage() {
         this.positionXNumber = -this.width * this.state.currentShowIndex;
         this.standardPositionX = this.positionXNumber;
